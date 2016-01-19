@@ -1,5 +1,18 @@
 # Write a class named Buffer that passes this test:
 
+class Buffer
+  attr_accessor :block
+  def initialize
+    @block = []
+  end
+  def insert(&b)
+    block << b
+  end
+  def play
+    block.each{|c| c.call}
+  end
+end
+
 require 'test/unit'
 
 class BufferTest < Test::Unit::TestCase

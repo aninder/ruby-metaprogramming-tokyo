@@ -31,6 +31,7 @@ module Printable
   end
 
   def prepare_cover
+    puts "prepare cover printable"
     # there is code here, but we don't care about it
   end
 end
@@ -43,6 +44,7 @@ module Document
   end
 
   def format_for_screen
+    puts "format for screen doucment"
     # we don't care about this code either
   end
 

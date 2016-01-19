@@ -15,10 +15,15 @@ Now it’s your turn to add more lines and boxes to the diagram and answer these
 3. What’s the class of Class?
 
 4. Imagine that you execute this code:
-      
+
 	 		obj3 = MyClass.new
 	 		obj3.instance_variable_set("@x", 10)
-			
+
    Can you add obj3 to the diagram?
 
 You can use irb (or Pry) and the Ruby documentation to find out the answers. As you answer the questions above, add the missing lines and boxes to the diagram.
+
+1.Class
+2.Object
+3.Class
+
