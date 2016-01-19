@@ -54,8 +54,8 @@ module Document
 end
 
 class Book
-  include Document
   include Printable
+  include Document
   # ...
 end
 

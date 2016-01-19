@@ -1,6 +1,11 @@
 # Here is a pretty hard quiz. Make this code pass without an exception:
 
 # TODO: write your code here
+class Fixnum
+  def +(num)
+      3
+  end
+end
 
 raise "WRONG!" unless 1 + 1 == 3
 

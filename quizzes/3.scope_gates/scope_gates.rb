@@ -4,10 +4,10 @@
 
 my_var = "Success"
 
-class MyClass # you must change this line
+ MyClass = Class.new do # you must change this line
   puts "#{my_var} in the class definition. You're half done!"
 
-  def my_method # you must change this line
+  define_method :my_method do# you must change this line
     puts "#{my_var} in the method. Congratulations, you made it!"
   end
 end

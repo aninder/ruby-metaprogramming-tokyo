@@ -40,7 +40,7 @@ class TestWith < Test::Unit::TestCase
     assert_equal 1, x
     assert disposable.disposed?
   end
-  
+
   # Even if the block raises an exception, the resource
   # is still disposed of.
   def test_disposes_of_resources_in_case_of_exception
@@ -66,6 +66,12 @@ end
 
 module Kernel
   def with(disposable_resource)
-    # TODO: this is your quiz. What do you write here?
+    begin
+      yield
+      disposable_resource.dispose
+    rescue Exception
+      disposable_resource.dispose
+      raise $!
+    end
   end
 end
