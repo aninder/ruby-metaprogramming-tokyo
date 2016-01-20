@@ -1,10 +1,23 @@
 # Your task is to write the string that is passed to eval():
 
 def add_checked_attribute(klass, attribute)
-  eval "..." # fill in this string of code!
+  eval("
+  #{klass}.class_eval do
+   define_method :#{attribute} do
+    instance_variable_get(:@#{attribute});
+   end
+   define_method :#{attribute}= do |attr|
+     if !attr
+       raise RuntimeError
+     end
+    instance_variable_set(:@#{attribute}, attr)
+   end
+  end
+")
+    # fill in this string of code!
 end
 
-# add_checked_attribute() should do a take a class and the name of an attribute, and
+# add_checked_attribute() should take a class and the name of an attribute, and
 # generate a reader method and a writer method for the attribute on the class, pretty
 # much like attr_accessor() does. However, add_checked_attribute() should also add
 # basic validation to the attribute: the attribute will raise an exception if you

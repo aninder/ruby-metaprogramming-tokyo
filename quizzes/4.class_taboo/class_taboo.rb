@@ -10,11 +10,13 @@
 # class:
 
 class MyClass < Array
+end
+
+MyClass = Class.new(Array) do
   def my_method
     'Hello!'
   end
 end
-
 # Now try to rewrite the code above without using the class keyword.
 # The test should still be green. In other words, you have to write
 # a piece of code that has exactly the same effect as the one above,

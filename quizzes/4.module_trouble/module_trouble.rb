@@ -8,8 +8,15 @@ module MyModule
 end
 
 class MyClass
-  include MyModule
+  class << self
+    include MyModule
+  end
 end
+
+#class MyClass
+#  include MyModule
+#end
+#
 
 MyClass.my_method # => NoMethodError!
 

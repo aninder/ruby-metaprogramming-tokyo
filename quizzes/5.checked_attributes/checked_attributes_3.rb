@@ -8,7 +8,7 @@ def add_checked_attribute(klass, attribute, &validation)
   # it doesn't pass the updated version of the test. Modify it!
   klass.class_eval do
     define_method "#{attribute}=" do |value|
-      raise 'Invalid attribute' unless value
+      raise 'Invalid attribute' if !(value && validation.call(value))
       instance_variable_set("@#{attribute}", value)
     end
 
@@ -34,7 +34,7 @@ class TestCheckedAttribute < Test::Unit::TestCase
   end
 
   def test_refuses_invalid_values
-    assert_raises RuntimeError, 'Invalid attribute' do
+    assert_raises RuntimeError.new('Invalid attribute') do
       @bob.age = 17
     end
   end
